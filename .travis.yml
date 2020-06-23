@@ -6,11 +6,14 @@ node_js:
 services:
   - docker
 
+before_script: 
+  - echo $DOCKER_USERNAME
+
 before_install:
   - docker build -t hello-world-api .
 
 deploy:
   provider: script
-  script: bash docker push gennadiixd/hello-world-ci-cd
+  script: bash docker_push
   on:
     branch: master
