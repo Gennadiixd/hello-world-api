@@ -1,4 +1,3 @@
 #!/bin/bash
-echo $DOCKER_USERNAME
 docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
 docker push gennadiixd/hello-world-ci-cd

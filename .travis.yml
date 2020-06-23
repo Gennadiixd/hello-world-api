@@ -1,5 +1,7 @@
 language: node_js
 
+echo $DOCKER_USERNAME
+
 node_js:
   - 12
 
@@ -9,8 +11,10 @@ services:
 before_install:
   - docker build -t hello-world-api .
 
+docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+
 deploy:
   provider: script
-  script: bash docker_push
+  script: bash docker push gennadiixd/hello-world-ci-cd
   on:
     branch: master
